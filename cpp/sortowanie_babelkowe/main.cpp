@@ -1,37 +1,65 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-int main(){
-	vector<int> tab = {3, 2, 5, 4, 3, 6, 1, 2, 5, 2, 1, 45, 12, 3, 1, 12, 2, 3 ,1};
-
-	//cout<<sizeof(tab)/sizeof(int);
-
-	int n;
-
-	for(int i = 0; i<tab.size(); i++)
+void bubbleSort(vector<float>& vec)
 	{
-		cout<<tab[i]<<", ";
-	}
+		int n;
 
-	cout<<"\n";
-	for(int i = 0; i<tab.size(); i++)
-	{
-		for(int j = 0; j<(tab.size() - 1); j++)
+		cout<<"\n";
+
+		for(int i = 0; i<vec.size(); i++)
 		{
-			if(tab[j] > tab[j+1])
+			for(int j = 0; j<(vec.size() - 1); j++)
 			{
-				n = tab[i];
-				tab[i] = tab[j];
-				tab[j] = n;
+				if(vec[j] > vec[j+1])
+				{
+					n = vec[j+1];
+					vec[j+1] = vec[j];
+					vec[j] = n;
+				}
 			}
 		}
 	}
 
-	for(int i = 0; i<tab.size(); i++)
+
+void printOut(vector<float>& vec)
 	{
-		cout<<tab[i]<<", ";
+		for(int i = 0; i<vec.size(); i++)
+		{
+			cout<<vec[i]<<", ";
+		}
+
 	}
 
+int main(){
+	int l;
+	cout<<"Podaj ilosc liczb w wektorze jaka chcesz wpisac: ";
+	cin>>l;
+
+	cout<<"Podaj po kolei liczby jakie ma zawierac twoj wektor:"<<endl;
+
+	float temp;
+
+	vector<float> vec;
+	for(int i = 0; i<l; i++)
+	{
+		cin>>temp;
+		vec.push_back(temp);
+	}
+
+	//vector<int> tab = {3, 2, 5, 4, 3, 6, 1, 2, 5, 2, 1, 45, 12, 3, 1, 12, 2, 3 ,1};
+
+	//cout<<sizeof(tab)/sizeof(int);
+	cout<<"Nieposortowana tablica: ";
+
+	printOut(vec);
+
+	bubbleSort(vec);
+
+	cout<<"Posortowana tablica: ";
+
+	printOut(vec);
 	return 0;
 }
