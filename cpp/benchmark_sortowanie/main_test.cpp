@@ -5,7 +5,26 @@
 #include "gtest/gtest.h"
 #include <chrono>
 
+using namespace std;
 // Funkcja sortująca wektor za pomocą QuickSort
+void bubbleSort(std::vector<int>& vec)
+	{
+		int n;
+
+		for(int i=0; i<vec.size(); i++)
+		{
+			for(int j = 0; j<(vec.size() - 1); j++)
+			{
+				if(vec[j] > vec[j+1])
+				{
+					n = vec[j+1];
+					vec[j+1]= vec[j];
+					vec[j] = n;
+				}
+			}
+		}
+	}
+
 void quickSort(std::vector<int>& vec) {
     if (vec.size() <= 1) return;
     int pivot = vec[vec.size() / 2];
@@ -32,6 +51,24 @@ TEST(BenchmarkTest, QuickSortBenchmark) {
     auto start = std::chrono::high_resolution_clock::now();
 
     quickSort(vec); // Sortujemy wektor
+
+    // Koniec pomiaru czasu
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end - start;
+
+    std::cout << "Czas sortowania: " << elapsed_seconds.count() << "s\n";
+}
+
+
+TEST(BenchmarkTest, BubbleSortBenchmark) {
+    std::vector<int> vec(10000); // Tworzymy wektor z 10000 losowymi liczbami
+    std::srand(std::time(0)); // Inicjalizacja generatora liczb losowych
+    std::generate(vec.begin(), vec.end(), std::rand);
+
+    // Początek pomiaru czasu
+    auto start = std::chrono::high_resolution_clock::now();
+
+    bubbleSort(vec); // Sortujemy wektor
 
     // Koniec pomiaru czasu
     auto end = std::chrono::high_resolution_clock::now();
