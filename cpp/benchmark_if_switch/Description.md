@@ -1,79 +1,158 @@
-# Benchmarki sortowań
-Celem tego zadania jest porównanie szybkości sortowania "quickSort" i bąbelkowego.
+# DO DOKOŃCZENIA
+
+
+# Benchmarki if, else if, switch
+Celem tego zadania jest porównanie szybkości if, else if oraz switcha
 
 ## Kod
-Oto oba sortowania:
+Oto funkcje sprawdzajace:
 ```cpp
-void bubbleSort(std::vector<int>& vec)
+int ifCheck(int checker)
 	{
-		int n;
+		if(checker == 1){
+			return 1;}
 
-		for(int i=0; i<vec.size(); i++)
+		if(checker == 2){
+			return 2;}
+
+		if(checker == 3){
+			return 3;}
+
+		if(checker == 4){
+			return 4;}
+
+		if(checker == 5){
+			return 5;}
+
+		if(checker == 6){
+			return 6;}
+
+		if(checker == 7){
+			return 7;}
+
+		if(checker == 8){
+			return 8;}
+
+		if(checker == 9){
+			return 9;}
+
+		if(checker == 10){
+			return 10;}
+
+	}
+
+
+int ifElseCheck(int checker)
+	{
+		if(checker == 1){
+			return 1;
+		}else if(checker == 2){
+			return 2;
+		}else if(checker == 3){
+			return 3;
+		}else if(checker == 4){
+			return 4;
+		}else if(checker == 5){
+			return 5;
+		}else if(checker == 6){
+			return 6;
+		}else if(checker == 7){
+			return 7;
+		}else if(checker == 8){
+			return 8;
+		}else if(checker == 9){
+			return 9;
+		}else if(checker == 10){
+			return 10;
+		}
+
+	}
+
+
+int switchCheck(int checker)
+	{
+		switch(checker)
 		{
-			for(int j = 0; j<(vec.size() - 1); j++)
-			{
-				if(vec[j] > vec[j+1])
-				{
-					n = vec[j+1];
-					vec[j+1]= vec[j];
-					vec[j] = n;
-				}
-			}
+			case 1:
+				return 1;
+
+			case 2:
+				return 2;
+
+			case 3:
+				return 3;
+
+			case 4:
+				return 4;
+
+			case 5:
+				return 5;
+
+			case 6:
+				return 6;
+
+			case 7:
+				return 7;
+
+			case 8:
+				return 8;
+
+			case 9:
+				return 9;
+
+			case 10:
+				return 10;
 		}
 	}
 
-void quickSort(std::vector<int>& vec) {
-    if (vec.size() <= 1) return;
-    int pivot = vec[vec.size() / 2];
-    std::vector<int> left, right;
-    for (size_t i = 0; i < vec.size(); i++) {
-        if (vec[i] < pivot) left.push_back(vec[i]);
-        else if (vec[i] > pivot) right.push_back(vec[i]);
-    }
-    quickSort(left);
-    quickSort(right);
-    vec.clear();
-    vec.insert(vec.end(), left.begin(), left.end());
-    vec.push_back(pivot);
-    vec.insert(vec.end(), right.begin(), right.end());
-}
 ```
 
 To wykonywane testy:
 ```cpp
-TEST(BenchmarkTest, QuickSortBenchmark) {
+TEST(BenchmarkTest, ifBenchmark) {
 
     // Początek pomiaru czasu
     auto start = std::chrono::high_resolution_clock::now();
 
-    quickSort(vecGlobal); // Sortujemy wektor
+    ifCheck(checkerGlobal);
 
     // Koniec pomiaru czasu
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
 
-    std::cout << "Czas sortowania: " << elapsed_seconds.count() << "s\n";
+    std::cout << "Czas sprawdzania: " << elapsed_seconds.count() << "s\n";
 }
 
 
-TEST(BenchmarkTest, BubbleSortBenchmark) {
-    //std::srand(std::time(0)); // Inicjalizacja generatora liczb losowych
-    //std::generate(vec.begin(), vec.end(), std::rand);
+TEST(BenchmarkTest, ifElseBenchmark) {
 
     // Początek pomiaru czasu
     auto start = std::chrono::high_resolution_clock::now();
 
-    bubbleSort(vecGlobal); // Sortujemy wektor
+    ifElseCheck(checkerGlobal);
 
     // Koniec pomiaru czasu
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
 
-    std::cout << "Czas sortowania: " << elapsed_seconds.count() << "s\n";
+    std::cout << "Czas sprawdzania: " << elapsed_seconds.count() << "s\n";
+}
+
+
+TEST(BenchmarkTest, switchBenchmark) {
+
+    // Początek pomiaru czasu
+    auto start = std::chrono::high_resolution_clock::now();
+
+    switchCheck(checkerGlobal);
+
+    // Koniec pomiaru czasu
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end - start;
+
+    std::cout << "Czas sprawdzania: " << elapsed_seconds.count() << "s\n";
 }
 ```
 
 # Działanie i wyniki
-Każdy test został przeprowadzony na tym samym wektorze z 1000 liczb w środku za pomocą zmiennej globalnej aby uniknąć nieprawidłowości.
-Przedstawiony poniżej zrzut ekranu ukazuje prawidłowy wynik jakim jest ogromna przewaga czasowa quicksorta nad sortowaniem bąbelkowym (12ms do 498ms). Oczywiście jest to niezauważalne gdyż testy zostały przeprowadzone małej liczbie danych
-![obraz](https://github.com/user-attachments/assets/10dd2cb6-fb4f-457e-8b7d-1869ec128d16)
+Każdy test został przeprowadzony na tej samej zmiennej globalnej o wartosci 10. Każda z funkcji przechodziła po kolei od 1 do 10 i sprawdzała czy zmienna jest jej równa. Funkcja kończyła działanie gdy liczba będzie równa liczbie 10. Jest to tak zrobione aby funkcja przeszła po każdej liczbie i wykonywała się jak najdłużej. Wynikiem przedstawionego benchmarka jest: ...
