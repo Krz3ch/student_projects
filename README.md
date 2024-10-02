@@ -1,5 +1,5 @@
 # Student Projects
-Student_project to repozytorium służace do zapisu z przedmiotu szkolnego: "Pracownia testowania i dokumentowania aplikacji".
+Student_project to repozytorium służace do zapisu zadań z przedmiotu szkolnego: "Pracownia testowania i dokumentowania aplikacji".
 Każdy commit jest dodawany poprzez maszynę wirtualną. To przykładowe readme także jest ćwiczeniem więc nie bierz tego na poważnie.
 
 # Fragmenty kodu
