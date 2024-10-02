@@ -7,7 +7,6 @@ void bubbleSort(vector<float>& vec)
 	{
 		int n;
 
-		cout<<"\n";
 
 		for(int i = 0; i<vec.size(); i++)
 		{
