@@ -35,5 +35,8 @@ TEST(mojagrupatestow, mojtest3) {
 }
 ```
 
-# Działanie i wynik
+## Działanie i wynik
 Funkcja sprawdza czy dana liczba jest podzielna przez 3, 5 lub obie liczby i zależnie od wyniku zwraca dane słowo. Testy sprawdzają czy ta funkcja działa poprawnie
+Wyniki testów:
+![image](https://github.com/user-attachments/assets/6d9ca0d4-c65d-4b49-8a54-13de21644eda)
+
