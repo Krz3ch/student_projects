@@ -163,3 +163,5 @@ TEST(BenchmarkTest, switchBenchmark) {
 
 # Działanie i wyniki
 Każdy test został przeprowadzony na tej samej zmiennej globalnej o wartosci 10. Każda z funkcji przechodziła po kolei od 1 do 10 i sprawdzała czy zmienna jest jej równa. Funkcja kończyła działanie gdy liczba będzie równa liczbie 10. Jest to tak zrobione aby funkcja przeszła po każdej liczbie i wykonywała się jak najdłużej. Wynikiem przedstawionego benchmarka jest: 
+![image](https://github.com/user-attachments/assets/d8e234c4-c1f4-4df6-b576-dcf55f8dae09)
+
