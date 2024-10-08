@@ -12,23 +12,23 @@ vector<int> checkerGlobal(100000);
 
 //(rand()%10) + 1;
 
-void ifCheck(vector<int> checker)
+void ifCheck(vector<int> vec)
 	{
 		int less = 0, greater = 0, equal = 0;
 
-		for(int i = 0; i<checker.size(); i++
+		for(int i = 0; i<vec.size(); i++)
 		{
-			if(checker[i] > 0)
+			if(vec[i] > 0)
 			{
 				greater++;
 			}
 
-			if(checker[i] < 0)
+			if(vec[i] < 0)
 			{
 				less++;
 			}
 
-			if(checker[i] = 0)
+			if(vec[i] == 0)
 			{
 				equal++;
 			}
@@ -36,21 +36,21 @@ void ifCheck(vector<int> checker)
 	}
 
 
-void ifElseCheck(vector<int> checker)
+void ifElseCheck(vector<int> vec)
 	{
 		int less = 0, greater = 0, equal = 0;
 
-		for(int i = 0; i<checker.size(); i++
+		for(int i = 0; i<vec.size(); i++)
 		{
-			if(checker[i] > 0)
+			if(vec[i] > 0)
 			{
 				greater++;
 			}
-			else if(checker[i] < 0)
+			else if(vec[i] < 0)
 			{
 				less++;
 			}
-			else if(checker[i] = 0)
+			else if(vec[i] == 0)
 			{
 				equal++;
 			}
@@ -58,11 +58,11 @@ void ifElseCheck(vector<int> checker)
 	}
 
 
-void switchCheck(vector<int> checker)
+void switchCheck(vector<int> vec)
 	{
 		int less = 0, greater = 0, equal = 0;
 
-		for(int i = 0; i<checker.size(); i++
+		for(int i = 0; i<vec.size(); i++)
 		{
 			switch(vec[i] > 0 ? 1 : vec[i] < 0 ? -1 : 0)
 			{
