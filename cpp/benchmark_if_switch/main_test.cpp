@@ -8,7 +8,7 @@
 using namespace std;
 // Funkcja sortująca wektor za pomocą QuickSort
 
-vector<int> checkerGlobal(100000);
+vector<int> checkerGlobal(1000000);
 
 //(rand()%10) + 1;
 
@@ -133,14 +133,9 @@ TEST(BenchmarkTest, switchBenchmark) {
 
 
 int main(int argc, char **argv) {
-    cout<<checkerGlobal<<endl;
 
-    cout<<ifCheck(checkerGlobal)<<endl;
-
-    cout<<ifElseCheck(checkerGlobal)<<endl;
-
-    cout<<switchCheck(checkerGlobal)<<endl;
     ::testing::InitGoogleTest(&argc, argv);
+
     return RUN_ALL_TESTS();
 }
 
