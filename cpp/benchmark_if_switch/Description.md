@@ -1,117 +1,74 @@
 # Benchmarki if, else if, switch
-Celem tego zadania jest porównanie szybkości if, else if oraz switcha
+
+Celem tego zadania jest porównanie szybkości działania instrukcji if, else if oraz switch, gdy są używane do oceny wartości elementów w wektorze.
 
 ## Opis funkcji
-Oto funkcje testowe używane do porównania:
 
-- **ifCheck**: Funkcja ta sprawdza kolejne wartości zmiennej `checker` za pomocą sekwencji instrukcji `if`.
-  
-- **ifElseCheck**: Tutaj do sprawdzenia wartości zmiennej używane są instrukcje `if-else if`, co pozwala wykluczać kolejne przypadki w miarę poruszania się przez listę warunków.
+Oto funkcje używane do porównania wydajności:
 
-- **switchCheck**: Funkcja korzysta z instrukcji `switch`, aby porównać wartość zmiennej z różnymi przypadkami (ang. cases).
+- **ifCheck**: Funkcja ta iteruje przez wszystkie elementy wektora vec i zlicza, ile z nich jest większych od zera, mniejszych od zera oraz równych zeru przy użyciu instrukcji if.
+
+- **ifElseCheck**: Ta funkcja działa podobnie do ifCheck, ale wykorzystuje instrukcje if-else if, co pozwala na bardziej efektywne wykluczanie kolejnych przypadków podczas przetwarzania elementów wektora.
+
+- **switchCheck**: W tej funkcji instrukcja switch jest używana do oceny wartości elementów w wektorze, w zależności od tego, czy są one większe, mniejsze czy równe zeru.
 
 
 ## Kod
 Oto funkcje sprawdzajace:
 ```cpp
-int ifCheck(int checker)
-	{
-		if(checker == 1){
-			return 1;}
+void ifCheck(vector<int> vec) {
+    int less = 0;
+    int greater = 0;
+    int equal = 0;
 
-		if(checker == 2){
-			return 2;}
+    for(int i = 0; i < vec.size(); i++) {
+        if(vec[i] > 0) {
+            greater++;
+        }
+        if(vec[i] < 0) {
+            less++;
+        }
+        if(vec[i] == 0) {
+            equal++;
+        }
+    }
+}
 
-		if(checker == 3){
-			return 3;}
+void ifElseCheck(vector<int> vec) {
+    int less = 0;
+    int greater = 0;
+    int equal = 0;
 
-		if(checker == 4){
-			return 4;}
+    for(int i = 0; i < vec.size(); i++) {
+        if(vec[i] > 0) {
+            greater++;
+        } else if(vec[i] < 0) {
+            less++;
+        } else if(vec[i] == 0) {
+            equal++;
+        }
+    }
+}
 
-		if(checker == 5){
-			return 5;}
+void switchCheck(vector<int> vec) {
+    int less = 0;
+    int greater = 0;
+    int equal = 0;
 
-		if(checker == 6){
-			return 6;}
-
-		if(checker == 7){
-			return 7;}
-
-		if(checker == 8){
-			return 8;}
-
-		if(checker == 9){
-			return 9;}
-
-		if(checker == 10){
-			return 10;}
-
-	}
-
-
-int ifElseCheck(int checker)
-	{
-		if(checker == 1){
-			return 1;
-		}else if(checker == 2){
-			return 2;
-		}else if(checker == 3){
-			return 3;
-		}else if(checker == 4){
-			return 4;
-		}else if(checker == 5){
-			return 5;
-		}else if(checker == 6){
-			return 6;
-		}else if(checker == 7){
-			return 7;
-		}else if(checker == 8){
-			return 8;
-		}else if(checker == 9){
-			return 9;
-		}else if(checker == 10){
-			return 10;
-		}
-
-	}
-
-
-int switchCheck(int checker)
-	{
-		switch(checker)
-		{
-			case 1:
-				return 1;
-
-			case 2:
-				return 2;
-
-			case 3:
-				return 3;
-
-			case 4:
-				return 4;
-
-			case 5:
-				return 5;
-
-			case 6:
-				return 6;
-
-			case 7:
-				return 7;
-
-			case 8:
-				return 8;
-
-			case 9:
-				return 9;
-
-			case 10:
-				return 10;
-		}
-	}
-
+    for(int i = 0; i < vec.size(); i++) {
+        switch(vec[i] > 0 ? 1 : vec[i] < 0 ? -1 : 0) {
+            case 1:
+                greater++;
+                break;
+            case -1:
+                less++;
+                break;
+            case 0:
+                equal++;
+                break;
+        }
+    }
+}
 ```
 
 To wykonywane testy:
@@ -161,7 +118,11 @@ TEST(BenchmarkTest, switchBenchmark) {
 }
 ```
 
-# Działanie i wyniki
-Każdy test został przeprowadzony na tej samej zmiennej globalnej o wartosci 10. Każda z funkcji przechodziła po kolei od 1 do 10 i sprawdzała czy zmienna jest jej równa. Funkcja kończyła działanie gdy liczba będzie równa liczbie 10. Jest to tak zrobione aby funkcja przeszła po każdej liczbie i wykonywała się jak najdłużej. Wynikiem przedstawionego benchmarka jest: 
-![image](https://github.com/user-attachments/assets/d8e234c4-c1f4-4df6-b576-dcf55f8dae09)
+## Działanie i wyniki
+Każdy test został przeprowadzony na tej samej globalnej zmiennej checkerGlobal, która zawiera 1 000 000 losowych wartości. Funkcje przechodzą przez wszystkie elementy wektora i zliczają wartości dodatnie, ujemne i równe zeru. Wyniki benchmarków pokazują czas potrzebny na wykonanie każdej z funkcji i umożliwiają porównanie wydajności pomiędzy różnymi konstrukcjami warunkowymi.
+![image](https://github.com/user-attachments/assets/e8e5eb32-e2e1-4a1e-ae66-9d48eac9cc50)
 
+
+
+## Wniosek
+Wynik ukazuje że funkcja spradzająca za pomocą switch jest najbardziej wydajna
