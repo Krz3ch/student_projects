@@ -14,7 +14,9 @@ vector<int> checkerGlobal(100000);
 
 void ifCheck(vector<int> vec)
 	{
-		int less = 0, greater = 0, equal = 0;
+		int less = 0;
+		int greater = 0;
+		int equal = 0;
 
 		for(int i = 0; i<vec.size(); i++)
 		{
@@ -38,7 +40,10 @@ void ifCheck(vector<int> vec)
 
 void ifElseCheck(vector<int> vec)
 	{
-		int less = 0, greater = 0, equal = 0;
+
+		int less = 0;
+		int greater = 0;
+		int equal = 0;
 
 		for(int i = 0; i<vec.size(); i++)
 		{
@@ -60,7 +65,9 @@ void ifElseCheck(vector<int> vec)
 
 void switchCheck(vector<int> vec)
 	{
-		int less = 0, greater = 0, equal = 0;
+		int less = 0;
+		int greater = 0;
+		int equal = 0;
 
 		for(int i = 0; i<vec.size(); i++)
 		{
