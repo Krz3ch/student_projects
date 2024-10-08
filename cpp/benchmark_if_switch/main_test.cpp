@@ -8,104 +8,74 @@
 using namespace std;
 // Funkcja sortująca wektor za pomocą QuickSort
 
-int checkerGlobal =  10;
+vector<int> checkerGlobal(100000);
+
 //(rand()%10) + 1;
 
-int ifCheck(int checker)
+void ifCheck(vector<int> checker)
 	{
-		if(checker == 1){
-			return 1;}
+		int less = 0, greater = 0, equal = 0;
 
-		if(checker == 2){
-			return 2;}
-
-		if(checker == 3){
-			return 3;}
-
-		if(checker == 4){
-			return 4;}
-
-		if(checker == 5){
-			return 5;}
-
-		if(checker == 6){
-			return 6;}
-
-		if(checker == 7){
-			return 7;}
-
-		if(checker == 8){
-			return 8;}
-
-		if(checker == 9){
-			return 9;}
-
-		if(checker == 10){
-			return 10;}
-
-	}
-
-
-int ifElseCheck(int checker)
-	{
-		if(checker == 1){
-			return 1;
-		}else if(checker == 2){
-			return 2;
-		}else if(checker == 3){
-			return 3;
-		}else if(checker == 4){
-			return 4;
-		}else if(checker == 5){
-			return 5;
-		}else if(checker == 6){
-			return 6;
-		}else if(checker == 7){
-			return 7;
-		}else if(checker == 8){
-			return 8;
-		}else if(checker == 9){
-			return 9;
-		}else if(checker == 10){
-			return 10;
-		}
-
-	}
-
-
-int switchCheck(int checker)
-	{
-		switch(checker)
+		for(int i = 0; i<checker.size(); i++
 		{
-			case 1:
-				return 1;
+			if(checker[i] > 0)
+			{
+				greater++;
+			}
 
-			case 2:
-				return 2;
+			if(checker[i] < 0)
+			{
+				less++;
+			}
 
-			case 3:
-				return 3;
+			if(checker[i] = 0)
+			{
+				equal++;
+			}
+		}
+	}
 
-			case 4:
-				return 4;
 
-			case 5:
-				return 5;
+void ifElseCheck(vector<int> checker)
+	{
+		int less = 0, greater = 0, equal = 0;
 
-			case 6:
-				return 6;
+		for(int i = 0; i<checker.size(); i++
+		{
+			if(checker[i] > 0)
+			{
+				greater++;
+			}
+			else if(checker[i] < 0)
+			{
+				less++;
+			}
+			else if(checker[i] = 0)
+			{
+				equal++;
+			}
+		}
+	}
 
-			case 7:
-				return 7;
 
-			case 8:
-				return 8;
+void switchCheck(vector<int> checker)
+	{
+		int less = 0, greater = 0, equal = 0;
 
-			case 9:
-				return 9;
-
-			case 10:
-				return 10;
+		for(int i = 0; i<checker.size(); i++
+		{
+			switch(vec[i] > 0 ? 1 : vec[i] < 0 ? -1 : 0)
+			{
+				case 1:
+					greater++;
+					break;
+				case -1:
+					less++;
+					break;
+				case 0:
+					equal++;
+					break;
+			}
 		}
 	}
 
