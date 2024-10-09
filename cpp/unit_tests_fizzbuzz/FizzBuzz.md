@@ -54,6 +54,7 @@ Wyniki testów:
 | Zwrócona wartość   |  "Buzz"   |  "Fizz"   | "FizzBuzz" |
 | Wynik testu        | pozytywny | pozytywny | pozytywny  |
 
+### Zrzut ekranu przedstawiający wynik
 ![image](https://github.com/user-attachments/assets/78505fbe-8ca6-4a51-b2e2-77e9dc41046a)
 
 
