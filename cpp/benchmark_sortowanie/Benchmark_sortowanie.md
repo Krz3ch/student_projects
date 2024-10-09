@@ -1,5 +1,5 @@
 # Benchmarki sortowań
-Celem tego zadania jest porównanie szybkości sortowania "quickSort" i bąbelkowego.
+Celem tego zadania jest porównanie szybkości sortowania "quickSort" i bąbelkowego oraz wskazanie które z tych sortowań
 
 ## Kod
 Oto oba sortowania:
@@ -74,6 +74,6 @@ TEST(BenchmarkTest, BubbleSortBenchmark) {
 ```
 
 # Działanie i wyniki
-Każdy test został przeprowadzony na tym samym wektorze z 1000 liczb w środku za pomocą zmiennej globalnej aby uniknąć nieprawidłowości.
+Każdy test został przeprowadzony na tym samym wektorze z 10000 liczb w środku za pomocą zmiennej globalnej aby uniknąć nieprawidłowości.
 Przedstawiony poniżej zrzut ekranu ukazuje prawidłowy wynik jakim jest ogromna przewaga czasowa quicksorta nad sortowaniem bąbelkowym (12ms do 498ms). Oczywiście jest to niezauważalne gdyż testy zostały przeprowadzone małej liczbie danych
 ![obraz](https://github.com/user-attachments/assets/10dd2cb6-fb4f-457e-8b7d-1869ec128d16)
