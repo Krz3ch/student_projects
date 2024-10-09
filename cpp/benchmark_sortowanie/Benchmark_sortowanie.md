@@ -45,7 +45,7 @@ void quickSort(std::vector<int>& vec) {
 }
 ```
 
-To wykonywane testy:
+Oto wykonywane testy:
 ```cpp
 TEST(BenchmarkTest, QuickSortBenchmark) {
 
@@ -77,10 +77,16 @@ TEST(BenchmarkTest, BubbleSortBenchmark) {
 }
 ```
 
-# Działanie i wyniki
+## Działanie i wyniki
 Każdy test został przeprowadzony na tym samym wektorze zawierającym 10000 liczb. Wektor ten jest zmienną globalną aby oba testy były wykonywane na tych samych danych i wynik był jak najbardziej wiarygodny.
 
-Rezultat:
-![obraz](https://github.com/user-attachments/assets/10dd2cb6-fb4f-457e-8b7d-1869ec128d16)
+**Rezultat:**
+| Typ Sortowania | quickSort | quickSort |
+|----------------|-----------|-----------|
+| Czas działania | 12ms      | 498ms     |
 
-Przedstawiony zrzut ekranu ukazuje prawidłowy wynik jakim jest ogromna przewaga czasowa quickSort nad bubbleSort (12ms do 498ms). Przedstawiony wynik jest jednakże niezauważalny przy kompilacji, ponieważ oba sortowania są wykonywane w czasie około 0.5 sekundy.
+
+Przedstawiony wynik ukazuje prawidłowy wynik jakim jest ogromna przewaga czasowa quickSort nad bubbleSort (12ms do 498ms). Przedstawiony wynik jest jednakże niezauważalny przy kompilacji, ponieważ oba sortowania są wykonywane w czasie około 0.5 sekundy.
+
+### Zrzut ekranu przedstawiający wynik
+![obraz](https://github.com/user-attachments/assets/10dd2cb6-fb4f-457e-8b7d-1869ec128d16)
