@@ -49,7 +49,7 @@ Wyniki testów:
 
 | Test               | Buzz      |    Fizz   | FizzBuzz   |
 |--------------------|-----------|-----------|------------|
-| Wpisana wartość    |   10      |    9      |     15     | 
+| Wpisana wartość    |    10     |     9     |     15     | 
 | Oczekiwana wartość |  "Buzz"   |  "Fizz"   | "FizzBuzz" |
 | Zwrócona wartość   |  "Buzz"   |  "Fizz"   | "FizzBuzz" |
 | Wynik testu        | pozytywny | pozytywny | pozytywny  |
