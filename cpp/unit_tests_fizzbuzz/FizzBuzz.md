@@ -1,6 +1,15 @@
 # Test FizzBuzz
 Celem tego projektu jest wykonanie prostej funkcji FizzBuzz a potem przetestowanie jej
 
+## Opis funkcji
+
+Oto funkcje używane do porównania wydajności:
+
+- **fizzBuzz**: Funkcja ta sprawdza czy element jest podzielny przez 3, 5 lub obie liczby. W przypadku różnych wyników funkcja zwraca:
+	- FizzBuzz -> gdy liczba jest podzielna przez 3 i 5,
+ 	- Fizz -> gdy liczba jest podzielna przez 3,
+  	- Buzz -> gdy liczba jest podzielna przez 5.
+
 ## Kod
 Oto funkcja fizzBuzz:
 ```cpp
@@ -17,26 +26,35 @@ string fizzBuzz (int a)
 }
 ```
 
-To wykonywane testy:
+Oto wykonywane testy:
 ```cpp
-TEST(mojagrupatestow, mojtest1) {
+TEST(FizzBuzzTests, Buzz) {
 	string wynik = fizzBuzz(10);
 	EXPECT_EQ(wynik, "Buzz");
 }
 
-TEST(mojagrupatestow, mojtest2) {
+TEST(FizzBuzzTests, Fizz) {
 	string wynik = fizzBuzz(9);
 	EXPECT_EQ(wynik, "Fizz");
 }
 
-TEST(mojagrupatestow, mojtest3) {
+TEST(FizzBuzzTests, FizzBuzz) {
 	string wynik = fizzBuzz(15);
 	EXPECT_EQ(wynik, "FizzBuzz");
 }
 ```
 
-## Działanie i wynik
-Funkcja sprawdza czy dana liczba jest podzielna przez 3, 5 lub obie liczby i zależnie od wyniku zwraca dane słowo. Testy sprawdzają czy ta funkcja działa poprawnie
+## Działanie testów
+Testy sprawdzają czy funkcja zwróci poprawne wartości.
+
 Wyniki testów:
+
+| Test               | Buzz      |    Fizz   | FizzBuzz   |
+|--------------------|-----------|-----------|------------|
+| Wpisana wartość    |   10      |    9      |     15     | 
+| Oczekiwana wartość |  "Buzz"   |  "Fizz"   | "FizzBuzz" |
+| Zwrócona wartość   |  "Buzz"   |  "Fizz"   | "FizzBuzz" |
+| Wynik testu        | pozytywny | pozytywny | pozytywny  |
+
 ![image](https://github.com/user-attachments/assets/6d9ca0d4-c65d-4b49-8a54-13de21644eda)
 
