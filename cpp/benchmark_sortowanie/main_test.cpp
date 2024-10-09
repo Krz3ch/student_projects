@@ -6,7 +6,6 @@
 #include <chrono>
 
 using namespace std;
-// Funkcja sortująca wektor za pomocą QuickSort
 
 //Stworzony wektor globalny aby oba testy korzystaly z tych samych danych
 vector<int> vecGlobal(10000); // Tworzymy wektor z 10000 losowymi liczbami
@@ -63,8 +62,6 @@ TEST(BenchmarkTest, QuickSortBenchmark) {
 
 
 TEST(BenchmarkTest, BubbleSortBenchmark) {
-    //std::srand(std::time(0)); // Inicjalizacja generatora liczb losowych
-    //std::generate(vec.begin(), vec.end(), std::rand);
 
     // Początek pomiaru czasu
     auto start = std::chrono::high_resolution_clock::now();
