@@ -1,8 +1,14 @@
 # Benchmarki sortowań
-Celem tego zadania jest porównanie szybkości sortowania "quickSort" i bąbelkowego oraz wskazanie które z tych sortowań
+Celem tego zadania jest porównanie szybkości sortowania "quickSort" i bąbelkowego oraz wskazanie które z tych sortowań jest szybsze.
+
+## Opis sortowań
+
+- **bubbleSort**: Sortowanie to polega na ciągłym porównywaniu dwóch sąsiadujących elementów i zamienianiu ich kolejności jeżeli docelowo są źle ustawione.
+
+- **quickSort**: Sortowanie to polega na ustaleniu pivota ( w tym przypadku środka wektora ) i podzieleniu naszego wektora na dwie części. Następnie każda wartość wektora jest sprawdzana z tym pivotem i w zależności czy jest mniejsza lub większa od niego jest przestawiana na daną stronę pivota, do vectorów left lub right. Na końcu wektory te są z powrotem łączone do wektora startowego tworząc prawidłowy układ.
 
 ## Kod
-Oto oba sortowania:
+Oto opisane sortowania:
 ```cpp
 void bubbleSort(std::vector<int>& vec)
 	{
@@ -57,8 +63,6 @@ TEST(BenchmarkTest, QuickSortBenchmark) {
 
 
 TEST(BenchmarkTest, BubbleSortBenchmark) {
-    //std::srand(std::time(0)); // Inicjalizacja generatora liczb losowych
-    //std::generate(vec.begin(), vec.end(), std::rand);
 
     // Początek pomiaru czasu
     auto start = std::chrono::high_resolution_clock::now();
@@ -74,6 +78,9 @@ TEST(BenchmarkTest, BubbleSortBenchmark) {
 ```
 
 # Działanie i wyniki
-Każdy test został przeprowadzony na tym samym wektorze z 10000 liczb w środku za pomocą zmiennej globalnej aby uniknąć nieprawidłowości.
-Przedstawiony poniżej zrzut ekranu ukazuje prawidłowy wynik jakim jest ogromna przewaga czasowa quicksorta nad sortowaniem bąbelkowym (12ms do 498ms). Oczywiście jest to niezauważalne gdyż testy zostały przeprowadzone małej liczbie danych
+Każdy test został przeprowadzony na tym samym wektorze zawierającym 10000 liczb. Wektor ten jest zmienną globalną aby oba testy były wykonywane na tych samych danych i wynik był jak najbardziej wiarygodny.
+
+Rezultat:
 ![obraz](https://github.com/user-attachments/assets/10dd2cb6-fb4f-457e-8b7d-1869ec128d16)
+
+Przedstawiony zrzut ekranu ukazuje prawidłowy wynik jakim jest ogromna przewaga czasowa quickSort nad bubbleSort (12ms do 498ms). Przedstawiony wynik jest jednakże niezauważalny przy kompilacji, ponieważ oba sortowania są wykonywane w czasie około 0.5 sekundy.
