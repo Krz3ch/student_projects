@@ -1,20 +1,19 @@
 # Benchmarki if, else if, switch
 
-Celem tego zadania jest porównanie szybkości działania instrukcji if, else if oraz switch, gdy są używane do oceny wartości elementów w wektorze.
+Celem tego zadania jest porównanie szybkości działania instrukcji if, else if oraz switch. W tym przypadku są one używane do oceny wartości elementów w wektorze.
 
 ## Opis funkcji
 
 Oto funkcje używane do porównania wydajności:
 
-- **ifCheck**: Funkcja ta iteruje przez wszystkie elementy wektora vec i zlicza, ile z nich jest większych od zera, mniejszych od zera oraz równych zeru przy użyciu instrukcji if.
+- **ifCheck**: Funkcja ta sprawdza po kolei elementy wektora czy są większe, mniejsze czy równe zeru za pomocą samych instrukcji warunkowych if.
 
-- **ifElseCheck**: Ta funkcja działa podobnie do ifCheck, ale wykorzystuje instrukcje if-else if, co pozwala na bardziej efektywne wykluczanie kolejnych przypadków podczas przetwarzania elementów wektora.
+- **ifElseCheck**: Ta funkcja także sprawdza po kolei elementy wektora czy są większe, mniejsze czy równe zeru zapomocą samych instrukcji warunkowych if, ale dodatkowo dodaje inne warunki w instrukcji za pomocą else if.
 
-- **switchCheck**: W tej funkcji instrukcja switch jest używana do oceny wartości elementów w wektorze, w zależności od tego, czy są one większe, mniejsze czy równe zeru.
-
+- **switchCheck**: Funkcja ta, podobnie do poprzednich, sprawdza po kolei elementy wektora czy są większe, mniejsze czy równe zeru zapomocą instrukcji switch.
 
 ## Kod
-Oto funkcje sprawdzajace:
+Oto opisane funkcje sprawdząjace:
 ```cpp
 void ifCheck(vector<int> vec) {
     int less = 0;
@@ -71,7 +70,7 @@ void switchCheck(vector<int> vec) {
 }
 ```
 
-To wykonywane testy:
+Oto wykonywane testy:
 ```cpp
 TEST(BenchmarkTest, ifBenchmark) {
 
@@ -118,11 +117,17 @@ TEST(BenchmarkTest, switchBenchmark) {
 }
 ```
 
+
 ## Działanie i wyniki
-Każdy test został przeprowadzony na tej samej globalnej zmiennej checkerGlobal, która zawiera 1 000 000 losowych wartości. Funkcje przechodzą przez wszystkie elementy wektora i zliczają wartości dodatnie, ujemne i równe zeru. Wyniki benchmarków pokazują czas potrzebny na wykonanie każdej z funkcji i umożliwiają porównanie wydajności pomiędzy różnymi konstrukcjami warunkowymi.
+Każdy test został przeprowadzony na tej samej globalnej zmiennej checkerGlobal, która zawiera 1 000 000 losowych wartości. Funkcje przechodzą przez wszystkie elementy wektora i zliczają wartości dodatnie, ujemne i równe zeru.
+
+**Rezultat:**
+| Rodzaj instrukcji | if   | if - else if | switch |
+|-------------------|------|--------------|--------|
+| Czas działania    | 8 ms | 8 ms         | 6 ms   |
+
+
+Wyniki benchmarków pokazują czas potrzebny na wykonanie każdej z funkcji i umożliwiają porównanie wydajności pomiędzy różnymi konstrukcjami warunkowymi. Po przeprowadzeniu testów można wywnioskować, że switch jest najszybszy z przetestowanych trzech instrukcji.
+
+### Zrzut ekranu przedstawiający wynik
 ![image](https://github.com/user-attachments/assets/e8e5eb32-e2e1-4a1e-ae66-9d48eac9cc50)
-
-
-
-## Wniosek
-Wynik ukazuje że funkcja spradzająca za pomocą switch jest najbardziej wydajna
