@@ -3,8 +3,6 @@ Celem tego projektu jest wykonanie prostej funkcji FizzBuzz a potem przetestowan
 
 ## Opis funkcji
 
-Oto funkcje używane do porównania wydajności:
-
 - **fizzBuzz**: Funkcja ta sprawdza czy element jest podzielny przez 3, 5 lub obie liczby. W przypadku różnych wyników funkcja zwraca:
 	- FizzBuzz -> gdy liczba jest podzielna przez 3 i 5,
  	- Fizz -> gdy liczba jest podzielna przez 3,
