@@ -1,0 +1,5 @@
+2024-10-23 07:10:02.455 [info] update#setState idle
+2024-10-23 07:10:20.545 [info] Extension host with pid 2401 exited with code: 0, signal: unknown.
+2024-10-23 07:10:20.593 [error] [UtilityProcessWorker]: terminated unexpectedly with code 18446744073530513000, signal: unknown
+2024-10-23 07:10:32.517 [info] update#setState checking for updates
+2024-10-23 07:10:32.577 [info] update#setState idle
