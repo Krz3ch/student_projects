@@ -1,9 +1,10 @@
 # Wyliczanie wymiarów schodów
 
 ## 1. Działanie
-**Program służy do wyliczania wysokości, szerokości oraz ilości schodów potrzebnych do przejścia z piętra A na piętro B \
-Zastosowana została zależność na enorgonomię schodów:** \
-`2 x h (wysokość stopnia) + s (głębokość stopnia) = 60-65 cm` \
+**Program służy do wyliczania wysokości, szerokości oraz ilości schodów potrzebnych do przejścia z piętra A na piętro B z uwzględnieniem ergonomicznej wysokości schodów wynosząceh 150-170 mm oraz ergonomicznej głębokości wynoszącej 290-320mm.**
+
+### 1.1.Ergonomia Schodów
+
 
 ## 2. Funkcjonalność
 Aplikacja przyjmuje 2 parametry: Lk ( Szerość klatki ) oraz Hk ( wysokość klatki ). \
