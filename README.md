@@ -28,5 +28,5 @@ W tym przypadku jest to losowe zdjecie z internetu
 # Użycie
 Podany wyżej kod jest świetną zabawą. Ruletka od zawsze była najlepszym wynalazkiem ludzkości a taka zabawa z komputerem jest świetnym zabiciem czasu. POWODZENIA
 
-# Autorzy
+# Autor
 - [Krzysztof Gadzina](https://github.com/Krz3ch)
