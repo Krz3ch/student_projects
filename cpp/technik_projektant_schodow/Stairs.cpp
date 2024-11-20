@@ -26,7 +26,11 @@ Stairs makeStairs(int kHeight, int kLength){
     }
 
     if(stairsCount == 0){
-        stairsCount = round(kHeight/150);
+        if(round(kHeight/150) == 0){
+            stairsCount = 1;
+        }else{
+            stairsCount = round(kHeight/150);
+        }
     }
 
     stairsHeight = kHeight/stairsCount;
