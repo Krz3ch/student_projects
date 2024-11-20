@@ -9,34 +9,32 @@ class Stairs
         int stepHeight;
         int stepLength;
         int stepCount;
-    Stairs (int height, int length, int count) : stepHeight(height), stepLength(length), stepCount(count){}
+        bool canBeMade = false;
+    Stairs (int height, int length, int count, bool isOk) : stepHeight(height), stepLength(length), stepCount(count), canBeMade(isOk){}
 };
 
-Stairs makeStairs(int kLength, int kHeight){
+Stairs makeStairs(int kHeight, int kLength){
     
-    int stairsCount = 0;
-    int stairsHeight;
-    int stairsLength;
-    int test;
+    int stairsCount = 0, stairsHeight, stairsLength, test;
 
     for(int i = 150; i < 170; i++){
         if(kHeight % i == 0){
             test = kHeight / i;
-            if((kLength/test) >= 290  && (kLength/test) <= 320){
-                stairsCount = test;
-                stairsHeight = kHeight/stairsCount;
-                stairsLength = kLength/stairsCount;
-                break;
-            }
+            stairsCount = test;
+            break;
         }
     }
 
     if(stairsCount == 0){
-        stairsCount = round(kHeight/170);
+        stairsCount = round(kHeight/150);
     }
 
     stairsHeight = kHeight/stairsCount;
     stairsLength = kLength/stairsCount;
     
-    return Stairs(stairsHeight, stairsLength, stairsCount);
+    if(stairsLength < 290){
+        return Stairs(0, 0, 0, false);
+    }
+
+    return Stairs(stairsHeight, stairsLength, stairsCount, true);
 };
