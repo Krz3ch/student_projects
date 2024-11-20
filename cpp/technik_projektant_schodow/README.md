@@ -41,3 +41,10 @@ Po obliczeniach program zwraca:
 6) Użytkownik podaje prawidłowe wymiary klatki w milimetrach.
 7) Aplikacja zwraca dane do użytkownika podane w sekcji `Funkcjonalność`
 8) Program kończy swoje działanie.
+
+
+## 4. Algorytm w C++
+
+## 5. Wyniki
+
+## 6. Testy
