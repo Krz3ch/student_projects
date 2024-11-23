@@ -3,18 +3,47 @@
 
 using namespace std;
 
-int main(){
-	int uX, uY;
+int main()
+{
+    int uX, uY;
 
-	cout<<"Podaj wysokosc klatki: "; cin>>uY;
-	cout<<"Podaj szerokosc klatki: "; cin>>uX;
+    while (true) {
+        cout << "Podaj wysokosc klatki: ";
+        cin >> uY;
 
-	Stairs stairs = makeStairs(uY, uX);
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Dane nie sa prawidlowe. Wpisz ponownie. \n";
+        }
+        else {
+            break;
+        }
+    }
 
-	if(stairs.canBeMade == true){
-		cout<<stairs.stepCount<<", "<<stairs.stepHeight<<", "<<stairs.stepLength<<endl;
-	}else{
-		cout<<"Stairs cannot be made"<<endl;
-	}
-	return 0;
+    while (true) {
+        cout << "Podaj szerokosc klatki: ";
+        cin >> uX;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Dane nie sa prawidlowe. Wpisz ponownie. \n";
+        }
+        else {
+            break;
+        }
+    }
+
+    Stairs stairs = makeStairs(uY, uX);
+
+    if (stairs.canBeMade) {
+        cout << stairs.stepCount << ", " << stairs.stepHeight << ", " << stairs.stepLength << endl;
+    }
+    else {
+        cout << "Schody nie moga zostac wykonane." << endl;
+    }
+
+    return 0;
+
 }
