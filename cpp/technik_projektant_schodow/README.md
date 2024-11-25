@@ -1,7 +1,7 @@
 # Wyliczanie wymiarów schodów
 
 ## 1. Działanie
-**Program służy do wyliczania wysokości, szerokości oraz ilości schodów potrzebnych do przejścia z piętra A na piętro B z uwzględnieniem ergonomicznej wysokości schodów wynosząceh 150-170 mm oraz ergonomicznej głębokości wynoszącej minimum 290 mm.**
+**Program służy do wyliczania wysokości, szerokości oraz ilości schodów potrzebnych do przejścia z piętra A na piętro B z uwzględnieniem ergonomicznej wysokości schodów wynosząceh 150-170 mm oraz ergonomicznej głębokości wynoszącej minimum 290 mm. W przypadku, gdy liczba schodów będzie bardzo niska, program może zwrócić niergonomiczną wysokość stopnia, gdyż podzielenie tak małej wysokości jest niepotrzebne.**
 
 ## 2. Funkcjonalność
 Aplikacja przyjmuje 2 parametry: Lk ( Szerość klatki ) oraz Hk ( wysokość klatki ). \
@@ -58,7 +58,7 @@ Stairs makeStairs(int kHeight, int kLength) {
     return Stairs(stairsHeight, stairsLength, stairsCount, true);
 };
 ```
-Funkcja makeStairs oblicza wymiary schodów na podstawie wprowadzonych danych: wysokości i szerokości klatki schodowej. Najpierw stara się znaleźć liczbę stopni, dzieląc wysokość przez wartości od 150 do 170. Jeśli nie znajdzie odpowiedniego dzielnika, ustawia liczbę stopni na zaokrągloną wartość dzielenia przez 150. Następnie oblicza wysokość i długość stopnia. Jeśli długość stopnia jest mniejsza niż 290, zwraca obiekt Stairs z zerowymi wartościami i flagą false. W przeciwnym razie zwraca obiekt Stairs z obliczonymi wartościami oraz flagą true, oznaczając, że schody mogą zostać wykonane.
+Funkcja makeStairs oblicza wymiary schodów na podstawie wprowadzonych danych: wysokości i szerokości klatki schodowej. Najpierw stara się znaleźć liczbę stopni, dzieląc wysokość przez wartości od 150 do 170. Jeśli nie znajdzie odpowiedniego dzielnika, ustawia liczbę stopni na zaokrągloną wartość dzielenia przez 150. Następnie oblicza wysokość i długość stopnia. Jeśli długość stopnia jest mniejsza niż 290, zwraca obiekt Stairs z zerowymi wartościami i zwraca flagę false, informując, że schody nie mogą zostać wykonane. W przeciwnym razie zwraca obiekt Stairs z obliczonymi wartościami oraz flagą true, oznaczając, że schody mogą zostać wykonane.
 
 ## 5. Main
 
@@ -111,3 +111,56 @@ int main()
 Funkcja main pobiera od użytkownika dane o wysokości i szerokości klatki schodowej, sprawdzając poprawność wprowadzonych wartości. Po uzyskaniu prawidłowych danych wywołuje funkcję makeStairs, która oblicza wymiary schodów. Jeśli schody mogą zostać wykonane, program wypisuje liczbę stopni, wysokość i długość stopnia. W przeciwnym razie wyświetla komunikat, że schody nie mogą zostać zbudowane. Program kończy działanie po wypisaniu odpowiedniego komunikatu.
 
 ## 6. Testy
+
+Testy są wykonywane aby sprawdzić, czy po wprowadzeniu danych wymiarów klatki schodowej do funkcji, zwracany wynik będzie oddawany w prawidłowy sposób i czy schody mogą zostać wykonane. Wykonano 5 testów, a oto 3 z nich:
+
+**Test 1**
+```cpp
+TEST(StairTest, StairTestEins) {
+    Stairs stairs = makeStairs(600, 1200);
+
+    ASSERT_EQ(stairs.canBeMade, true);
+    EXPECT_EQ(stairs.stepCount, 4);
+    EXPECT_EQ(stairs.stepHeight, 150);
+    EXPECT_EQ(stairs.stepLength, 300);
+}
+```
+
+**Test 2**
+```cpp
+TEST(StairTest, StairTestZwei) {
+    Stairs stairs = makeStairs(2500, 7423);
+
+    ASSERT_EQ(stairs.canBeMade, true);
+    EXPECT_EQ(stairs.stepCount, 16);
+    EXPECT_EQ(stairs.stepHeight, 156);
+    EXPECT_EQ(stairs.stepLength, 463);
+}
+```
+
+**Test 3**
+```cpp
+TEST(StairTest, StairTestDrei) {
+    Stairs stairs = makeStairs(27000, 18180);
+
+    ASSERT_EQ(stairs.canBeMade, false);
+    EXPECT_EQ(stairs.stepCount, 0);
+    EXPECT_EQ(stairs.stepHeight, 0);
+    EXPECT_EQ(stairs.stepLength, 0);
+}
+```
+### Oto wyniki testów przedstawione w tabeli
+
+
+| NAZWA TESTU              | StairTestEins | StairTestZwei | StairTestDrei |
+|--------------------------|---------------|---------------|---------------|
+| WPROWADZONA WYSOKOŚĆ     | 600           | 2500          | 27000         |
+| WPROWADZONA SZERKOŚĆ     | 1200          | 7423          | 18180         |
+| CZY MOŻNA WYKONAĆ SCHODY | TAK           | TAK           | NIE           |
+| ZWRÓCONA WARTOŚĆ         | TAK           | TAK           | NIE           |
+| OCZEKIWANA ILOŚĆ         | 4             | 16            | 0             |
+| ZWRÓCONA ILOŚĆ           | 4             | 16            | 0             |
+| OCZEKIWANA WYSOKOŚĆ      | 150           | 156           | 0             |
+| ZWRÓCONA WYSOKOŚĆ        | 150           | 156           | 0             |
+| OCZEKIWANA DŁUGOŚĆ       | 300           | 463           | 0             |
+| ZWRÓCONA DŁUGOŚĆ         | 300           | 463           | 0             |
